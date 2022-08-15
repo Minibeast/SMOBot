@@ -1,0 +1,23 @@
+{
+    "name": "SMOBot",
+    "version": "0.0.1",
+    "description": "SMO Speedruning Discord bot",
+    "main": "bot.js",
+    "author": "Tischel",
+    "scripts": {
+        "start": "node bot.js"
+    },
+    "dependencies": {
+        "@discordjs/builders": "^0.6.0",
+        "@discordjs/rest": "^0.1.0-canary.0",
+        "@supercharge/strings": "^1.18.0",
+        "discord-api-types": "^0.23.1",
+        "discord.js": "^13.1.0",
+        "dotenv": "^10.0.0",
+        "request": "2.81.0",
+        "stop-discord-phishing": "^0.2.0"
+    },
+    "engines": {
+        "node": "16.x"
+    }
+}
