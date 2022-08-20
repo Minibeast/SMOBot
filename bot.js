@@ -89,10 +89,10 @@ client.on('ready', () => {
                 }
             });
 
-        // find runner-voting channel and race-voting
+        // find runner-voting channel
         for (const channelId of guild.channels.cache.keys()) {
             const channel = guild.channels.cache.get(channelId)
-            if (channel.name.localeCompare(process.env.RUNNER_VOTING_CHANNEL) == 0 || channel.name.localeCompare(process.env.RACE_VOTING_CHANNEL) == 0) {
+            if (channel.name.localeCompare(process.env.RUNNER_VOTING_CHANNEL) == 0) {
                 reactToOldMessagesIn(channel)
             }
         }
@@ -160,11 +160,6 @@ client.on('messageReactionAdd', async (reaction, user) => {
     if (reaction.message.channel.name == process.env.RUNNER_VOTING_CHANNEL) {
         handleVoteReaction(reaction);
         generate_one_time(user);
-    }
-
-    // race-voting channel
-    if (reaction.message.channel.name == process.env.RACE_VOTING_CHANNEL) {
-        handleVoteReaction(reaction);
     }
 });
 
