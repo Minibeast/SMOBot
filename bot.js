@@ -447,9 +447,14 @@ function getDiscordHandle(srcName, completion) {
         });
 
         res.on('end', () => {
-            const regex = /(?<=data-id=")(.*?#....)/g;
+            const regex = /(?<=data-original-title="Discord: )(.*?")/g;
             const match = data.match(regex);
-            const result = match != null ? match[0] : "";
+            let result = match != null ? match[0].slice(0, -1) : "";
+
+            if (!result.includes("#")) {
+                result = result.toLowerCase();
+                result += "#0";
+            }
 
             completion(result);
         });
