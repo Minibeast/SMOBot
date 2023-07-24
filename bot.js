@@ -323,7 +323,7 @@ async function handleRunnerAssign(interaction, username) {
         const realDiscordHandle = (interaction.user.username + "#" + interaction.user.discriminator);
 
         if (discordHandle.localeCompare(realDiscordHandle) != 0) {
-            interaction.editReply({ content: 'The given speedrun.com user does not have a Discord account linked in their profile, or it doesn\'t match.', ephemeral: true });
+            interaction.editReply({ content: 'The given speedrun.com user does not have a Discord account linked in their profile, or it doesn\'t match.\n\nThis could be a mistake due to recent changes. If it continues, please contact a moderator.', ephemeral: true });
             console.log(realDiscordHandle + ' has "' + discordHandle + '" as their discord handle in speedrun.com, and doesn\'t match.');
             return;
         }
