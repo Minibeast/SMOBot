@@ -447,13 +447,16 @@ function getDiscordHandle(srcName, completion) {
         });
 
         res.on('end', () => {
-            const regex = /(?<=data-original-title="Discord: )(.*?")/g;
+            const regex = /(?<=1\.612Z"><\/path><\/svg> <!-- -->)(.*?<)/g; //? This doesn't work on all profiles, although it appears to work on most? Not sure. Either way, some profiles don't show Discord even when it's linked. Example: /users/Mini54
             const match = data.match(regex);
             let result = match != null ? match[0].slice(0, -1) : "";
 
             if (!result.includes("#")) {
                 result = result.toLowerCase();
                 result += "#0";
+            }
+            if (result.includes("@")) {
+                result = result.substring(1);
             }
 
             completion(result);
