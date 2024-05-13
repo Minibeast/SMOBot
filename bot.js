@@ -436,7 +436,7 @@ function getDiscordHandle(srcName, completion) {
     const profilePageOptions = {
         hostname: 'www.speedrun.com',
         port: 443,
-        path: '/user/' + encodeURIComponent(srcName),
+        path: '/users/' + encodeURIComponent(srcName),
         method: 'GET'
     }
 
